@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Predicting Personalities</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <link rel="stylesheet" href="">
+    <!-- font source: https://fonts.google.com/specimen/Montserrat?sidebar.open=true&selection.family=Montserrat:wght@400;700-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+
+        .body-background {
+            background-image: url('external-content.duckduckgo.com.jpg');
+            background-size: cover;
+            height: 100vh;
+            position: fixed;
+            width: 100%;
+            z-index: -10;
+        }
+
+        /* 
+        .content-container {
+            animation: pulse 5s;
+        }
+
+        @keyframes pulse {
+            0% {
+                width: 100%;
+            }
+
+            100% {
+                width: 00%;
+            }
+        }
+ */
+        .content-container {
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+10,1+90,0+100 */
+            background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
+            /* IE6-9 */
+
+            height: 100vh;
+            padding: 0 10%;
+            z-index: 1;
+        }
+
+        .content {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            padding: 50px;
+            z-index: 10;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+    <div class="body-background"></div>
+    <div class="content-container">
+        <div class="content">
+            <div class="page page01 active">
+                <div>This is one.</div>
+            </div>
+            <div class="page page02">
+                <div>
+                    <ul>
+                        <li>Used spaCy</li>
+                        <li>Used NLTK</li>
+                        <li>What are my models?</li>
+                        <li>LinearSVC</li>
+                        <li>Random Forest</li>
+                        <li>Linear Reg</li>
+                        <li>Logistic reg</li>
+                        <li>Tree</li>
+                        <li>SVC</li>
+                        <li>GaussianNB</li>
+                        <li>NB</li>
+                        <li>GradientBoost</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page page03">
+                <div>This is three.</div>
+            </div>
+            <div class="page page04">
+                <div>This is four.</div>
+            </div>
+            <div class="page page05">
+                <div>This is five.</div>
+            </div>
+            <div class="page page06">
+                <div>Next steps:</div>
+                <ul>
+                    <li>Remove non-meaningful words. e.g. the, a</li>
+                    <li>Group words by meaning. e.g. Synonym finder</li>
+                    <li>Basic word groupings. e.g. not</li>
+                    <li>Remove URLs.</li>
+                    <li>group posts by personality parameters</li>
+                    <li>split posts into rows</li>
+                    <li>run different models</li>
+                    <li>Other</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        const page = {
+            dict: { 1: "page01", 2: "page02", 3: "page03", 4: "page04", 5: "page05", 6: "page06" },
+            min: 1,
+            max: 6,
+            no: 1,
+        };
+
+        const nextPage = e => {
+            e && e.preventDefault();
+            if (page.no < page.max) {
+                $('.' + page.dict[page.no]).removeClass('active');
+                page.no += 1;
+                $('.' + page.dict[page.no]).addClass('active');
+            }
+        }
+
+        const prevPage = e => {
+            e && e.preventDefault();
+            if (page.no > page.min) {
+                $('.' + page.dict[page.no]).removeClass('active');
+                page.no -= 1;
+                $('.' + page.dict[page.no]).addClass('active');
+            }
+        }
+
+        document.onkeydown = checkKey;
+
+        function checkKey(e) {
+            const err = e || window.event;
+
+            if (e.keyCode == '37') {
+                prevPage();
+            }
+            else if (e.keyCode == '39') {
+                nextPage();
+            }
+        }
+    </script>
+</body>
+
+</html>
