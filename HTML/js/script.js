@@ -1,5 +1,5 @@
 const page = {
-    dict: { 1: "page01", 2: "page02", 3: "page03", 4: "page04", 5: "page05", 6: "page06", 7: "page07" },
+    dict: { 1: "page01", 2: "page02", 3: "page03", 4: "page04", 5: "page05", 6: "page06", 7: "page07", 8: "page08" },
     min: 1,
     max: 6,
     no: 1,
