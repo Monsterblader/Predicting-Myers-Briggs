@@ -12,116 +12,91 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <meta http-equiv="refresh" content="5"> -->
-    <link rel="stylesheet" href="">
     <!-- font source: https://fonts.google.com/specimen/Montserrat?sidebar.open=true&selection.family=Montserrat:wght@400;700-->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            outline: 0;
-            font-size: 100%;
-            vertical-align: baseline;
-            background: transparent;
-        }
-
-        .body-background {
-            background-image: url('images/wordcloud.jpg');
-            background-size: cover;
-            height: 100vh;
-            position: fixed;
-            width: 100%;
-            z-index: -10;
-        }
-
-
-        .content {
-            animation: pulse 0.5s;
-        }
-
-        @keyframes pulse {
-            0% {
-                width: 100%;
-            }
-
-            100% {
-                width: 00%;
-            }
-        }
-
-        .content-container {
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+0,eeeeee+100&0+0,0.97+10,0.97+90,0+100 */
-            background: -moz-linear-gradient(left, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 0.97) 10%, rgba(238, 238, 238, 0.97) 90%, rgba(238, 238, 238, 0) 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(left, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 0.97) 10%, rgba(238, 238, 238, 0.97) 90%, rgba(238, 238, 238, 0) 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to right, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 0.97) 10%, rgba(238, 238, 238, 0.97) 90%, rgba(238, 238, 238, 0) 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00eeeeee', endColorstr='#00eeeeee', GradientType=1);
-            /* IE6-9 */
-
-            height: 100vh;
-            padding: 0 10%;
-            z-index: 1;
-        }
-
-        .content {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            padding: 50px;
-            z-index: 10;
-        }
-
-        .page {
-            display: none;
-        }
-
-        .active {
-            display: block;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
     <!--[if lt IE 7]>
-                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
     <div class="body-background"></div>
+
     <div class="content-container">
         <div class="content">
             <div class="page page01 active">
-                <div>This is one.</div>
+                <div class="row top">
+                    Improve Leadership Efficiency by Identifying Personality Types
+                </div>
+                <div class="row bottom">
+                    <img
+                        src="https://www.ntaskmanager.com/wp-content/uploads/2018/06/5-tips-for-5star-team-management_blog-01.png" />
+                </div>
             </div>
             <div class="page page02">
+                <div class="column left">
+                    A frequent poster is most likely to have I or NP personality elements.
+                </div>
+                <div class="column right">
+                    <img src="images/posts by personality.svg" />
+                </div>
+            </div>
+            <div class="page page03">
+                <div class="column left">
+                    Though the model doesn't predict some personality types, it has an accuracy of 0.21, better than
+                    guessing randomly.
+                </div>
+                <div class="column right">
+                    <div class="title"> Metrics of a Multinomial Naive Bayes Classifier and the NLTK Pre-Processor</div>
+                    <iframe src="pages/nltk_holdback_metrics.html"></iframe>
+                </div>
+            </div>
+            <div class="page page04">
+                <div class="column left">
+                    <u>Next steps:</u>
+                    <ul>
+                        <li>Split into categories - I-E S-N T-F J-P</li>
+                        <li>Upsample</li>
+                    </ul>
+                </div>
+                <div class="column right">
+                    <img src="https://medias1.prestastore.com/838558-pbig/to-do-list-in-your-back-office.jpg" />
+                </div>
+            </div>
+            <div class="page page05">
                 <div>
                     <ul>
                         <li>Used spaCy</li>
                         <li>Used NLTK</li>
                         <li>What are my models?</li>
-                        <li>LinearSVC</li>
+                        <li>LinearSVC - slower than MultinomialNB</li>
                         <li>Random Forest</li>
                         <li>Linear Reg</li>
                         <li>Logistic reg</li>
                         <li>Tree</li>
                         <li>SVC</li>
-                        <li>GaussianNB</li>
-                        <li>NB</li>
+                        <li>GaussianNB (for continuous numerical variables) - not suited for model as it has a sparse
+                            matrix. MultinomialNB is a better fit.
+                        </li>
+                        <li>NB - count all words, create probabilities, predict from sum of log of probabilities</li>
                         <li>GradientBoost</li>
+                        <li>Model is better when not separating posts</li>
                     </ul>
                 </div>
-            </div>
-            <div class="page page03">
-                <div>This is three.</div>
-            </div>
-            <div class="page page04">
                 <div>This is four.</div>
             </div>
-            <div class="page page05">
-                <div>This is five.</div>
-            </div>
             <div class="page page06">
+                <div>This is five.</div>
+                <li>Can you run model after vectorized?</li>
+                <li>Do you need to vectorize test data?</li>
+                <li>Model is much stronger when leaving posts combined per user. is this to be expected? Is it
+                    reasonable to leave posts grouped this way</li>
+                <li>Does it still work when test set is split into individual posts. Investigate</li>
+                <li>What are other processing steps.</li>
+            </div>
+            <div class="page page07">
                 <div>Next steps:</div>
                 <ul>
                     <li>Remove non-meaningful words. e.g. the, a</li>
@@ -134,50 +109,19 @@
                     <li>Other</li>
                 </ul>
             </div>
-
+            <div class="page page08">
+                <ul>
+                    <li>Where you focus your attention – Extraversion (E) or Introversion (I)</li>
+                    <li>The way you take in information – Sensing (S) or INtuition (N)</li>
+                    <li>How you make decisions – Thinking (T) or Feeling (F)</li>
+                    <li>How you deal with the world – Judging (J) or Perceiving (P)</li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        const page = {
-            dict: { 1: "page01", 2: "page02", 3: "page03", 4: "page04", 5: "page05", 6: "page06" },
-            min: 1,
-            max: 6,
-            no: 1,
-        };
-
-        const nextPage = e => {
-            e && e.preventDefault();
-            if (page.no < page.max) {
-                $('.' + page.dict[page.no]).removeClass('active');
-                page.no += 1;
-                $('.' + page.dict[page.no]).addClass('active');
-            }
-        }
-
-        const prevPage = e => {
-            e && e.preventDefault();
-            if (page.no > page.min) {
-                $('.' + page.dict[page.no]).removeClass('active');
-                page.no -= 1;
-                $('.' + page.dict[page.no]).addClass('active');
-            }
-        }
-
-        document.onkeydown = checkKey;
-
-        function checkKey(e) {
-            const err = e || window.event;
-
-            if (e.keyCode == '37') {
-                prevPage();
-            }
-            else if (e.keyCode == '39') {
-                nextPage();
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
