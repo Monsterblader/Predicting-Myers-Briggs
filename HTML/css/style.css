@@ -103,10 +103,24 @@
     transform: translate(0, 33%);
 }
 
+.page03 .left {
+    margin-top: 25%;
+    transform: translate(0, -50%);
+    vertical-align: top;
+}
+
+.page03 .title {
+    background-color: #111;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 5%;
+    text-align: center;
+}
+
 .page03 iframe {
     border-radius: 10px;
-    height: 700px;
-    transform: translate(0, 20%);
+    height: 530px;
     width: 100%;
 }
 
