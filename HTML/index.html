@@ -6,118 +6,155 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Predicting Personalities</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <meta http-equiv="refresh" content="5"> -->
-    <!-- font source: https://fonts.google.com/specimen/Montserrat?sidebar.open=true&selection.family=Montserrat:wght@400;700-->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Predicting Personalities</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta http-equiv="refresh" content="5"> -->
+  <!-- font source: https://fonts.google.com/specimen/Montserrat?sidebar.open=true&selection.family=Montserrat:wght@400;700-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <!--[if lt IE 7]>
+  <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="body-background"></div>
+  <div class="body-background"></div>
 
-    <div class="content-container">
-        <div class="content">
-            <div class="page page01 active">
-                <div class="row top">
-                    Improve Leadership Efficiency by Identifying Personality Types
-                </div>
-                <div class="row bottom">
-                    <img
-                        src="https://www.ntaskmanager.com/wp-content/uploads/2018/06/5-tips-for-5star-team-management_blog-01.png" />
-                </div>
-            </div>
-            <div class="page page02">
-                <div class="column left">
-                    A frequent poster is most likely to have I or NP personality elements.
-                </div>
-                <div class="column right">
-                    <img src="images/posts by personality.svg" />
-                </div>
-            </div>
-            <div class="page page03">
-                <div class="column left">
-                    Though the model doesn't predict some personality types, it has an accuracy of 0.21, better than
-                    guessing randomly.
-                </div>
-                <div class="column right">
-                    <div class="title"> Metrics of a Multinomial Naive Bayes Classifier and the NLTK Pre-Processor</div>
-                    <iframe src="pages/nltk_holdback_metrics.html"></iframe>
-                </div>
-            </div>
-            <div class="page page04">
-                <div class="column left">
-                    <u>Next steps:</u>
-                    <ul>
-                        <li>Split into categories - I-E S-N T-F J-P</li>
-                        <li>Upsample</li>
-                    </ul>
-                </div>
-                <div class="column right">
-                    <img src="https://medias1.prestastore.com/838558-pbig/to-do-list-in-your-back-office.jpg" />
-                </div>
-            </div>
-            <div class="page page05">
-                <div>
-                    <ul>
-                        <li>Used spaCy</li>
-                        <li>Used NLTK</li>
-                        <li>What are my models?</li>
-                        <li>LinearSVC - slower than MultinomialNB</li>
-                        <li>Random Forest</li>
-                        <li>Linear Reg</li>
-                        <li>Logistic reg</li>
-                        <li>Tree</li>
-                        <li>SVC</li>
-                        <li>GaussianNB (for continuous numerical variables) - not suited for model as it has a sparse
-                            matrix. MultinomialNB is a better fit.
-                        </li>
-                        <li>NB - count all words, create probabilities, predict from sum of log of probabilities</li>
-                        <li>GradientBoost</li>
-                        <li>Model is better when not separating posts</li>
-                    </ul>
-                </div>
-                <div>This is four.</div>
-            </div>
-            <div class="page page06">
-                <div>This is five.</div>
-                <li>Can you run model after vectorized?</li>
-                <li>Do you need to vectorize test data?</li>
-                <li>Model is much stronger when leaving posts combined per user. is this to be expected? Is it
-                    reasonable to leave posts grouped this way</li>
-                <li>Does it still work when test set is split into individual posts. Investigate</li>
-                <li>What are other processing steps.</li>
-            </div>
-            <div class="page page07">
-                <div>Next steps:</div>
-                <ul>
-                    <li>Remove non-meaningful words. e.g. the, a</li>
-                    <li>Group words by meaning. e.g. Synonym finder</li>
-                    <li>Basic word groupings. e.g. not</li>
-                    <li>Remove URLs.</li>
-                    <li>group posts by personality parameters</li>
-                    <li>split posts into rows</li>
-                    <li>run different models</li>
-                    <li>Other</li>
-                </ul>
-            </div>
-            <div class="page page08">
-                <ul>
-                    <li>Where you focus your attention – Extraversion (E) or Introversion (I)</li>
-                    <li>The way you take in information – Sensing (S) or INtuition (N)</li>
-                    <li>How you make decisions – Thinking (T) or Feeling (F)</li>
-                    <li>How you deal with the world – Judging (J) or Perceiving (P)</li>
-                </ul>
-            </div>
+  <div class="content-container">
+    <div class="content">
+      <div class="page page01 active">
+        <div class="row top">
+          Improve Leadership Efficiency by Identifying Personality Types
         </div>
+        <div class="row bottom">
+          <img
+            src="https://www.ntaskmanager.com/wp-content/uploads/2018/06/5-tips-for-5star-team-management_blog-01.png" />
+        </div>
+      </div>
+      <div class="page page02">
+        <div class="column left copy">
+          A frequent poster is most likely to have I or NP personality elements.
+        </div>
+        <div class="column right">
+          <img src="images/posts by personality.svg" />
+        </div>
+      </div>
+      <div class="page page03">
+        <div class="column left copy">
+          Though the model doesn't predict some personality types, it has an accuracy of 0.21, better than
+          guessing randomly.
+        </div>
+        <div class="column right">
+          <div class="title"> Metrics of a Multinomial Naive Bayes Classifier and the NLTK Pre-Processor</div>
+          <iframe src="pages/nltk_holdback_metrics.html"></iframe>
+        </div>
+      </div>
+      <div class="page page04">
+        <div class="column left copy">
+          <u>Next steps:</u>
+          <ul>
+            <li>Split into categories - I-E S-N T-F J-P</li>
+            <li>Upsample</li>
+          </ul>
+        </div>
+        <div class="column right">
+          <img src="https://medias1.prestastore.com/838558-pbig/to-do-list-in-your-back-office.jpg" />
+        </div>
+      </div>
+      <div class="page page05">
+        <div class="column left copy">
+          You all probably know your MBTI scores.
+          When I trained models on post histories, I got reasonably goo accuracy score of 0.6. When I ran the
+          model on my validation set, I still got 0.6. When I ran it on single posts, the accuracy dropped to
+          0.2. While that's better than guessing randomly, there were some caategories that it never guessed
+          because there are so few data points, so I split the personalities into the components to create
+          groups that had more data points.
+        </div>
+      </div>
+      <div class="page page05">
+        <div>
+          <ul>
+            <li>Used spaCy</li>
+            <li>Used NLTK</li>
+            <li>What are my models?</li>
+            <li>LinearSVC - slower than MultinomialNB</li>
+            <li>Random Forest</li>
+            <li>Linear Reg</li>
+            <li>Logistic reg</li>
+            <li>Tree</li>
+            <li>SVC</li>
+            <li>GaussianNB (for continuous numerical variables) - not suited for model as it has a sparse
+              matrix. MultinomialNB is a better fit.
+            </li>
+            <li>NB - count all words, create probabilities, predict from sum of log of probabilities</li>
+            <li>GradientBoost</li>
+            <li>Model is better when not separating posts</li>
+          </ul>
+        </div>
+        <div>This is four.</div>
+      </div>
+      <div class="page page06">
+        <div>This is five.</div>
+        <li>Can you run model after vectorized?</li>
+        <li>Do you need to vectorize test data?</li>
+        <li>Model is much stronger when leaving posts combined per user. is this to be expected? Is it
+          reasonable to leave posts grouped this way</li>
+        <li>Does it still work when test set is split into individual posts. Investigate</li>
+        <li>What are other processing steps.</li>
+      </div>
+      <div class="page page07">
+        <div>Next steps:</div>
+        <ul>
+          <li>Remove non-meaningful words. e.g. the, a</li>
+          <li>Group words by meaning. e.g. Synonym finder</li>
+          <li>Basic word groupings. e.g. not</li>
+          <li>Remove URLs.</li>
+          <li>group posts by personality parameters</li>
+          <li>split posts into rows</li>
+          <li>run different models</li>
+          <li>Other</li>
+        </ul>
+      </div>
+      <div class="page page08">
+        <ul>
+          <li>Where you focus your attention – Extraversion (E) or Introversion (I)</li>
+          <li>The way you take in information – Sensing (S) or INtuition (N)</li>
+          <li>How you make decisions – Thinking (T) or Feeling (F)</li>
+          <li>How you deal with the world – Judging (J) or Perceiving (P)</li>
+        </ul>
+      </div>
+      <div clss="page page09">
+
+
+        SPLIT by category to increase
+
+        Undersampling or applying class weights
+
+        Grid Search
+        GradientBoost
+
+
+        Naive Bayes
+        XGBoost
+        RandomForest
+
+        Show results of all tried models - spacy, LinearSVC, Random Forest, others
+
+        On initial NLTK model, show results over val and holdback groups
+        Show results for post history and single posts
+
+        On initial NLTK model, show myself - five categories
+        - Full personality
+        -<I-E - N-S - F-T - J-P Show refinements Show new results Show github link and ask people to rate themselves?
+          Full background image of me with post overlay or image inset into post? Animate drop alcohol shaker onto post
+          and swirl post into zero, replace with results? Animations? - expand white background with gradient edges to
+          cover text then shrink to reveal results? or optimize each hyperparameter individually. Need to add
+          complexity. 3. over sampling. 2. Topic modeling? 1. Fix class imbalance - oversample E </div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

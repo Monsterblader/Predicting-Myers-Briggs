@@ -69,10 +69,13 @@
     width: 49%;
 }
 
-.page01,
-.page02 {
-    height: 100vh;
+.copy {
+    margin-top: 200px;
+    vertical-align: top;
 }
+
+.page01,
+.page02 {}
 
 .page01 .top {
     border: 1px solid;
@@ -103,16 +106,13 @@
     transform: translate(0, 33%);
 }
 
-.page03 .left {
-    margin-top: 25%;
-    transform: translate(0, -50%);
-    vertical-align: top;
-}
+.page03 .left {}
 
 .page03 .title {
     background-color: #111;
     border-radius: 10px;
     font-size: 18px;
+    margin-top: 100px;
     margin-bottom: 20px;
     padding: 5%;
     text-align: center;
