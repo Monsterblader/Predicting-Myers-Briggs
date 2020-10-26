@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template
 from flask.helpers import send_from_directory
+from predictor.predictor import predict_personality
 
-app = Flask('scrabble')
+app = Flask(__name__)
 
 
 @app.route('/')  # the site to route to, index/main in this case
@@ -32,6 +33,11 @@ def send_images(path):
 @app.route('/pages/<path:path>')
 def send_pages(path):
     return send_from_directory('pages', path)
+
+
+@app.route('/pages/getprediction')
+def get_prediction():
+    return predict_personality(request.args.to_dict()['content'])
 
 
 # This just gets flask running
