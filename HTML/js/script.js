@@ -1,25 +1,28 @@
 const page = {
-    dict: { 1: "page01", 2: "page02", 3: "page03", 4: "page04", 5: "page05", 6: "page06", 7: "page07", 8: "page08" },
     min: 1,
-    max: 6,
+    max: 22,
     no: 1,
 };
+
+const makePageNumber = num => {
+    return num < 10 ? "page0" + num : "page" + num;
+}
 
 const nextPage = e => {
     e && e.preventDefault();
     if (page.no < page.max) {
-        $('.' + page.dict[page.no]).removeClass('active');
+        $('.' + makePageNumber(page.no)).removeClass('active');
         page.no += 1;
-        $('.' + page.dict[page.no]).addClass('active');
+        $('.' + makePageNumber(page.no)).addClass('active');
     }
 }
 
 const prevPage = e => {
     e && e.preventDefault();
     if (page.no > page.min) {
-        $('.' + page.dict[page.no]).removeClass('active');
+        $('.' + makePageNumber(page.no)).removeClass('active');
         page.no -= 1;
-        $('.' + page.dict[page.no]).addClass('active');
+        $('.' + makePageNumber(page.no)).addClass('active');
     }
 }
 

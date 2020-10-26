@@ -44,7 +44,7 @@
     /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00eeeeee', endColorstr='#00eeeeee', GradientType=1); */
     /* IE6-9 */
 
-    background-color: #2484bb;
+    background-color: #1a89c4;
     height: 100vh;
     opacity: 95%;
     padding: 0 10%;
@@ -74,41 +74,35 @@
     vertical-align: top;
 }
 
-.page01,
-.page02 {}
+.opener {
+    padding-top: 75px;
+}
 
-.page01 .top {
-    border: 1px solid;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: black;
+.opener .top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 40px;
+    background-color: slategray;
     text-align: center;
 }
 
-.page01 img {
-    border-radius: 10px;
-    transform: translate(0, 10%);
+.opener img {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 100%;
 }
 
-.page02 .left {
-    left: 0;
-    width: 33%;
+.peter-principle {
+    padding-top: 75px;
 }
 
-.page02 .right {
-    left: 34%;
-    width: 66%;
-}
+.peter-principle .top {}
 
-.page02 .right img {
-    width: 100%;
-    transform: translate(0, 33%);
-}
+.peter-principle .bottom {}
 
-.page03 .left {}
+.new-tools .left {}
 
-.page03 .title {
+.new-tools .title {
     background-color: #111;
     border-radius: 10px;
     font-size: 18px;
@@ -118,7 +112,7 @@
     text-align: center;
 }
 
-.page03 iframe {
+.new-tools iframe {
     border-radius: 10px;
     height: 530px;
     width: 100%;
@@ -126,7 +120,16 @@
 
 .page04 img {
     border-radius: 10px;
-    transform: translate(0, 20%);
+    padding-top: 100px;
+    width: 100%;
+}
+
+.page07 .row {
+    width: 100%;
+}
+
+.page07 img {
+    height: 100%;
     width: 100%;
 }
 
