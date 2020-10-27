@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from nltk.corpus import stopwords
+from imblearn.over_sampling import RandomOverSampler
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
@@ -95,7 +96,6 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
     vectorizer_max_features = 1500
     chosen_classifier = MultinomialNB
 
-    from functions import load_data_set, sanitize_posts
     myers_briggs = load_data_set()
 
     mb_df = pd.DataFrame(myers_briggs, columns=['type', 'posts'])
@@ -107,7 +107,8 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
 
     posts_by_type = {typ: mb_df[mb_df['type'] == typ] for typ in types}
 
-    vertical_post_df = pd.read_csv('vertical_posts.csv', index_col=0)
+    vertical_post_df = pd.read_csv(
+        '../analysis/vertical_posts.csv', index_col=0)
 
     X_nat, y_nat = mb_df['posts'], mb_df['type']
     oversample_size = 500
@@ -141,4 +142,4 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
     trans_user = vectorizer.transform([user_post]).toarray()
     trans_user = tfidfconverter.fit_transform(trans_user).toarray()
 
-    return classifier.predict(trans_user)
+    return classifier.predict(trans_user)[0]
