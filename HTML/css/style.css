@@ -1,11 +1,17 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
     background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+img {
+    display: block;
+    margin: auto;
 }
 
 .body-background {
@@ -34,48 +40,15 @@
 }
  */
 .content-container {
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+0,eeeeee+100&0+0,0.97+10,0.97+90,0+100 */
-    /* background: -moz-linear-gradient(left, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 0.97) 10%, rgba(238, 238, 238, 0.97) 90%, rgba(238, 238, 238, 0) 100%); */
-    /* FF3.6-15 */
-    /* background: -webkit-linear-gradient(left, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 0.97) 10%, rgba(238, 238, 238, 0.97) 90%, rgba(238, 238, 238, 0) 100%); */
-    /* Chrome10-25,Safari5.1-6 */
-    /* background: linear-gradient(to right, rgba(238, 238, 238, 0) 0%, rgba(238, 238, 238, 0.97) 10%, rgba(238, 238, 238, 0.97) 90%, rgba(238, 238, 238, 0) 100%); */
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00eeeeee', endColorstr='#00eeeeee', GradientType=1); */
-    /* IE6-9 */
-
     background-color: #1a89c4;
     height: 100vh;
     opacity: 95%;
-    padding: 0 10%;
     z-index: 1;
-}
-
-.content {
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 40px;
-    padding: 50px;
-    text-shadow: 2px 2px 2px #111;
-    z-index: 10;
-}
-
-.page {
-    display: none;
 }
 
 .column {
     display: inline-block;
     width: 49%;
-}
-
-.copy {
-    margin-top: 200px;
-    vertical-align: top;
-}
-
-.opener {
-    padding-top: 75px;
 }
 
 .opener .top {
@@ -92,15 +65,28 @@
     width: 100%;
 }
 
-.peter-principle {
-    padding-top: 75px;
+.peter-principle img {
+    border-radius: 10px;
+    height: 800px;
 }
 
-.peter-principle .top {}
+.new-tools .row {
+    height: 49%;
+}
 
-.peter-principle .bottom {}
+.new-tools .column {
+    width: 49%;
+}
 
-.new-tools .left {}
+.new-tools .top .left .cell {
+    padding-left: 200px;
+    transform: translate(0, -175%);
+}
+
+.new-tools img {
+    max-height: 400px;
+    max-width: 740px;
+}
 
 .new-tools .title {
     background-color: #111;
@@ -118,21 +104,197 @@
     width: 100%;
 }
 
-.page04 img {
+.whats-mbti top {
+    padding: 40px;
+}
+
+.whats-mbti img {
     border-radius: 10px;
-    padding-top: 100px;
-    width: 100%;
+    max-height: 650px;
+    padding-top: 75px;
 }
 
-.page07 .row {
-    width: 100%;
+.missing-link div {
+    display: inline-block;
+    height: 800px;
 }
 
-.page07 img {
-    height: 100%;
-    width: 100%;
+.missing-link .divider {
+    font-size: 75px;
+    margin-left: -55px;
+    vertical-align: 375px;
+    width: 40px;
 }
 
-.active {
-    display: block;
+.missing-link .left {
+    width: 600px;
+}
+
+.missing-link .left img {
+    padding-top: 225px;
+    width: 600px;
+}
+
+.missing-link .middle {
+    width: 180px;
+}
+
+.missing-link .middle img {
+    padding-top: 325px;
+}
+
+.missing-link .right {
+    width: 600px;
+}
+
+.missing-link .right img {
+    padding-top: 200px;
+    width: 600px;
+}
+
+.tool div {
+    padding: 40px;
+}
+
+.tool .left {
+    display: inline-block;
+    width: 700px;
+}
+
+.tool .right {
+    display: inline-block;
+    font-size: 110px;
+    transform: translate(0, -70%);
+    width: 700px;
+}
+
+.tool .copy {
+    font-size: 30px;
+    text-align: justify;
+}
+
+.tool img {
+    float: left;
+    margin: 5px;
+}
+
+.tool .cat {
+    background-color: #eee;
+    border-radius: 20px;
+    color: #111;
+    margin: 5px;
+    padding: 10px 20px;
+}
+
+/* slideshow begin */
+.slideshow-container {
+    color: #fff;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    height: 900px;
+    margin: auto;
+    padding-top: 75px;
+    position: relative;
+    /* text-shadow: 2px 2px 2px #111; */
+    width: 1500px;
+    z-index: 10;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
 }
