@@ -38,3 +38,40 @@ const showSlides = n => {
 let slideIndex = 1;
 showSlides(slideIndex);
 document.onkeydown = checkKey;
+
+$("button").click(function () {
+  $('.predictor')[0].style.display = "none";
+  const spinner = $('.spinner')[0].style;
+  spinner.display = 'block';
+  content = $('textarea')[0].value;
+  $.ajax({
+    url: "getprediction",
+    type: "get",
+    data: { content: content },
+    success: function (data, status) {
+      cats = data.split('');
+      spinner.display = "none";
+      $('.prediction-result')[0].style.display = 'block';
+      setTimeout(() => {
+        const EI = $('.EI')[0];
+        EI.innerText = cats[0];
+        EI.style.display = 'inline';
+      }, 1000);
+      setTimeout(() => {
+        const NS = $('.NS')[0];
+        NS.innerText = cats[1];
+        NS.style.display = 'inline';
+      }, 2000);
+      setTimeout(() => {
+        const FT = $('.FT')[0];
+        FT.innerText = cats[2];
+        FT.style.display = 'inline';
+      }, 3000);
+      setTimeout(() => {
+        const JP = $('.JP')[0];
+        JP.innerText = cats[3];
+        JP.style.display = 'inline';
+      }, 5000);
+    },
+  });
+});

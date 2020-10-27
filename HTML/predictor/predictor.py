@@ -112,8 +112,8 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
 
     X_nat, y_nat = mb_df['posts'], mb_df['type']
     oversample_size = 500
-    ros = RandomOverSampler({"ENFJ": oversample_size, "ENTJ": oversample_size, "ESFJ": oversample_size, "ESFP": oversample_size, "ESTJ": oversample_size,
-                             "ESTP": oversample_size, 'ISFJ': oversample_size, 'ISFP': oversample_size, 'ISTJ': oversample_size, 'ISTP': oversample_size})
+    ros = RandomOverSampler(sampling_strategy={"ENFJ": oversample_size, "ENTJ": oversample_size, "ESFJ": oversample_size, "ESFP": oversample_size, "ESTJ": oversample_size,
+                                               "ESTP": oversample_size, 'ISFJ': oversample_size, 'ISFP': oversample_size, 'ISTJ': oversample_size, 'ISTP': oversample_size})
     X, y = ros.fit_sample(pd.DataFrame(X_nat), y_nat)
     X_train_val, X_holdback, y_train_val, y_holdback = train_test_split(X, y)
     documents = sanitize_posts(X_train_val['posts'])
