@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from nltk.corpus import stopwords
+from imblearn.over_sampling import RandomOverSampler
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
@@ -91,7 +92,6 @@ def sanitize_posts(source):
 
 
 def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native who attended Caltech in Pasadena and has spent time all over the country.  My favorite cities are San Francisco, Boston, Raleigh, and Denver.  I am a bootcamp veteran, having acquired a skill set in web development, and where I, amazingly, met Josh Shaman who now works for Metis.  I bike, play piano, and dance in my spare time."):
-
     train_size = 0.8
     vectorizer_max_features = 1500
     chosen_classifier = MultinomialNB
@@ -110,18 +110,19 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
     vertical_post_df = pd.read_csv(
         '../analysis/vertical_posts.csv', index_col=0)
 
-    X, y = mb_df['posts'], mb_df['type']
-
+    X_nat, y_nat = mb_df['posts'], mb_df['type']
+    oversample_size = 500
+    ros = RandomOverSampler({"ENFJ": oversample_size, "ENTJ": oversample_size, "ESFJ": oversample_size, "ESFP": oversample_size, "ESTJ": oversample_size,
+                             "ESTP": oversample_size, 'ISFJ': oversample_size, 'ISFP': oversample_size, 'ISTJ': oversample_size, 'ISTP': oversample_size})
+    X, y = ros.fit_sample(pd.DataFrame(X_nat), y_nat)
     X_train_val, X_holdback, y_train_val, y_holdback = train_test_split(X, y)
-
-    X_train_val, X_holdback, y_train_val, y_holdback = train_test_split(X, y)
-
-    documents = sanitize_posts(X_train_val)
+    documents = sanitize_posts(X_train_val['posts'])
 
     vectorizer = CountVectorizer(max_features=vectorizer_max_features,
                                  min_df=5, max_df=0.7, stop_words=stopwords.words('english'))
-    X = vectorizer.fit_transform(X_train_val).toarray()
+    X = vectorizer.fit_transform(X_train_val['posts']).toarray()
 
+    from sklearn.feature_extraction.text import TfidfTransformer
     tfidfconverter = TfidfTransformer()
     X = tfidfconverter.fit_transform(X).toarray()
 
@@ -137,36 +138,6 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
 
     with open('text_classifier', 'rb') as training_model:
         model = pickle.load(training_model)
-
-    holdback_df = pd.DataFrame(
-        zip(y_holdback, X_holdback), columns=('type', 'posts'))
-
-    holdback_post_list = [re.split('\|\|\|+', post)
-                          for post in holdback_df['posts']]
-    holdback_post_df = pd.DataFrame(holdback_post_list)
-    holdback_post_df.insert(loc=0, column='type', value=holdback_df['type'])
-
-    def compress_posts(df):
-        result = []
-        df_length = range(len(df))
-
-        for i in df_length:
-            for j in range(57):
-                if df.iloc[i][j] != None:
-                    result.append([df['type'][i], df.iloc[i][j]])
-
-        return pd.DataFrame(result, columns=('type', 'post'))
-
-    vertical_holdback = compress_posts(holdback_post_df)
-
-    documents = sanitize_posts(vertical_holdback['post'])
-
-    vertical_X_holdback = vectorizer.transform(documents).toarray()
-    vertical_X_holdback = tfidfconverter.fit_transform(
-        vertical_X_holdback).toarray()
-    pred_holdback = classifier.predict(vertical_X_holdback)
-
-    classifier.predict_proba(vertical_X_holdback)
 
     trans_user = vectorizer.transform([user_post]).toarray()
     trans_user = tfidfconverter.fit_transform(trans_user).toarray()
