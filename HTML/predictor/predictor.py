@@ -91,7 +91,7 @@ def sanitize_posts(source):
     return documents
 
 
-def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native who attended Caltech in Pasadena and has spent time all over the country.  My favorite cities are San Francisco, Boston, Raleigh, and Denver.  I am a bootcamp veteran, having acquired a skill set in web development, and where I, amazingly, met Josh Shaman who now works for Metis.  I bike, play piano, and dance in my spare time."):
+def predict_personality_full(user_post="Hi, everyone!  I’m a San Francisco native who attended Caltech in Pasadena and has spent time all over the country.  My favorite cities are San Francisco, Boston, Raleigh, and Denver.  I am a bootcamp veteran, having acquired a skill set in web development, and where I, amazingly, met Josh Shaman who now works for Metis.  I bike, play piano, and dance in my spare time."):
     train_size = 0.8
     vectorizer_max_features = 1500
     chosen_classifier = MultinomialNB
@@ -138,6 +138,20 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
 
     with open('text_classifier', 'rb') as training_model:
         model = pickle.load(training_model)
+
+    trans_user = vectorizer.transform([user_post]).toarray()
+    trans_user = tfidfconverter.fit_transform(trans_user).toarray()
+
+    return classifier.predict(trans_user)[0]
+
+
+def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native who attended Caltech in Pasadena and has spent time all over the country.  My favorite cities are San Francisco, Boston, Raleigh, and Denver.  I am a bootcamp veteran, having acquired a skill set in web development, and where I, amazingly, met Josh Shaman who now works for Metis.  I bike, play piano, and dance in my spare time."):
+    with open('text_vectorizer', 'rb') as training_vectorizer:
+        vectorizer = pickle.load(training_vectorizer)
+    with open('text_tfidf', 'rb') as training_tdidf:
+        tfidfconverter = pickle.load(training_tdidf)
+    with open('text_classifier', 'rb') as training_classifier:
+        classifier = pickle.load(training_classifier)
 
     trans_user = vectorizer.transform([user_post]).toarray()
     trans_user = tfidfconverter.fit_transform(trans_user).toarray()
