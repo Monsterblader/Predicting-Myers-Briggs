@@ -243,8 +243,8 @@ iframe {
     width: 650px;
 }
 
-.NLTK-baseline .right {
-    transform: translate(0, 10px);
+.NLTK-baseline img {
+    height: 500px;
 }
 
 .NLTK-baseline img {
@@ -385,8 +385,8 @@ iframe {
 }
 
 .thought4 {
-    left: 200px;
-    top: 800px;
+    left: 500px;
+    top: 600px;
 }
 
 .thought5 {
