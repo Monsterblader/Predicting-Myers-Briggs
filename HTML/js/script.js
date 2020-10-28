@@ -55,19 +55,19 @@ $("button").click(function () {
       setTimeout(() => {
         $('.thought1')[0].style.display = 'none'
         $('.thought2')[0].style.display = 'block'
-      }, 4000);
+      }, 2000);
       setTimeout(() => {
         $('.thought2')[0].style.display = 'none'
         $('.thought3')[0].style.display = 'block'
-      }, 7000);
+      }, 3000);
       setTimeout(() => {
         $('.thought3')[0].style.display = 'none'
         $('.thought4')[0].style.display = 'block'
-      }, 11000);
+      }, 4000);
       setTimeout(() => {
         $('.thought4')[0].style.display = 'none'
         $('.thought5')[0].style.display = 'block'
-      }, 15000)
+      }, 5000)
       setTimeout(() => {
         cats = data.split('');
         spinner.display = "none";
@@ -92,8 +92,14 @@ $("button").click(function () {
           const JP = $('.JP')[0];
           JP.innerText = cats[3];
           JP.style.display = 'inline';
-        }, 5000);
-      }, 17000);
+        }, 4000);
+      }, 6000);
     },
   });
 });
+
+const highlightMe = () => {
+  spanStyle = $('.onek')[0].style;
+  spanStyle.background = 'rgb(252, 176, 64)';
+  spanStyle.color = 'black';
+}

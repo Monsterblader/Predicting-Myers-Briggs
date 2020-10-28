@@ -79,23 +79,8 @@ iframe {
     max-width: 740px;
 }
 
-.new-tools .title {
-    background-color: #111;
-    border-radius: 10px;
-    font-size: 18px;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    padding: 5%;
+.whats-mbti .top {
     text-align: center;
-}
-
-.new-tools iframe {
-    height: 530px;
-    width: 100%;
-}
-
-.whats-mbti top {
-    padding: 40px;
 }
 
 .whats-mbti img {
@@ -143,6 +128,10 @@ iframe {
 
 .tool div {
     padding: 40px;
+}
+
+.tool .top {
+    text-align: center;
 }
 
 .tool .left {
@@ -211,6 +200,11 @@ iframe {
     transform: translate(0, -100px);
 }
 
+.trying-classifiers .top {
+    padding: 40px;
+    text-align: center;
+}
+
 .trying-classifiers table {
     margin: 200px auto 0 auto;
 }
@@ -224,6 +218,16 @@ iframe {
     text-align: center;
 }
 
+.NLTK-process .top {
+    padding: 40px;
+    text-align: center;
+}
+
+.NLTK-process .bottom {
+    display: inline-block;
+    transform: translate(300px, 150px);
+}
+
 .NLTK-baseline .top {
     padding: 40px;
     text-align: center;
@@ -235,21 +239,21 @@ iframe {
 }
 
 .NLTK-baseline iframe {
-    height: 425px;
-    width: 600px;
+    height: 500px;
+    width: 650px;
 }
 
 .NLTK-baseline .right {
-    transform: translate(0, 75px);
+    transform: translate(0, 10px);
+}
+
+.NLTK-baseline img {
+    background-color: white;
 }
 
 .undersample .top {
     padding: 40px;
     text-align: center;
-}
-
-.undersample .bottom {
-    margin-top: 75px;
 }
 
 .undersample .bottom div {
@@ -259,8 +263,8 @@ iframe {
 }
 
 .undersample iframe {
-    height: 425px;
-    width: 600px;
+    height: 500px;
+    width: 650px;
 }
 
 .oversample .top .right {
@@ -307,6 +311,10 @@ iframe {
     margin-top: 75px;
 }
 
+.oversample-plot img {
+    background-color: white;
+}
+
 .todo img {
     width: 100%;
 }
@@ -314,6 +322,10 @@ iframe {
 .todo .right {
     transform: translate(100px, 0);
     vertical-align: top;
+}
+
+.todo .cell {
+    height: 440px;
 }
 
 .predictor textarea,
