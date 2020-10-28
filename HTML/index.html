@@ -52,6 +52,7 @@
         <div class="page page08 missing-personalities">
           <div class="column left copy">
             Provide new tools - to become better managers or rise to new levels of incompetence.
+            or tools for selling to personality types.
           </div>
           <div class="column right">
             <img src="" />
@@ -66,17 +67,6 @@
           </div>
           <div class="row bottom">
             <img src="https://blog.mapmyrun.com/wp-content/uploads/2018/06/UACF_Myers-Briggs_Chart5.jpg" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page05 tools-mbti">
-          <div class="column left copy">
-            Tools for managing and selling to MBTI tupes
-          </div>
-          <div class="column right">
-            <img src="" />
           </div>
         </div>
       </div>
@@ -157,117 +147,137 @@
       </div>
 
       <div class="mySlides fade">
-        <div class="page page10">
-          <div class="column left copy">
-            Starting with MBTI dataset
+        <div class="page personality-cafe">
+          <div class="row top">
+            Starting with an MBTI dataset
           </div>
-          <div class="column right">
-            <img src="" />
+          <div class="row middle">
+            <img src="images/PersonalityCafe.png" />
           </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page11">
-          <div class="column left copy">
-            Tried several models - LinearSVC, Decision Tree, MultinomialNB, spaCy, NLTK
-            Which worked, which didn't
-          </div>
-          <div class="column right">
-            <img src="" />
+          <div class="row bottom">
+            <img src="images/Kaggle.png" />
           </div>
         </div>
       </div>
 
       <div class="mySlides fade">
-        <div class="page page12">
-          <div class="column left copy">
-            NLTK - how it works.
+        <div class="page nlp">
+          <div class="row top">
+            <img src="https://www.pythonprogramming.in/media/wysiwyg/pybanner.jpg" />
           </div>
-          <div class="column right">
-            <img src="" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page13">
-          <div class="column left copy">
-            Initial run - baseline score
-          </div>
-          <div class="column right">
-            <img src="" />
+          <div class="row bottom">
+            <div class="left cell">
+              <img src="images/Screen Shot 2020-10-27 at 3.25.32 PM.png" />
+            </div>
+            <div class="right cell">
+              <img src="images/Screen Shot 2020-10-27 at 3.29.24 PM.png" />
+            </div>
           </div>
         </div>
       </div>
 
       <div class="mySlides fade">
-        <div class="page page14">
-          <div class="column left copy">
-            Biased distribution. Introverts post more or are more interested in knowing personality? Beyond scope of
-            investigation.
+        <div class="page trying-classifiers">
+          <div class="row top">
+            Separated post histories into individual posts and tried several classifiers.
           </div>
-          <div class="column right">
-            <img src="images/posts by personality.svg" />
+          <div class="row bottom">
+            <table>
+              <tr>
+                <th>Classifier</th>
+                <th>Accuracy</th>
+              </tr>
+              <tr>
+                <td>LinearSVC</td>
+                <td class="right">0.27</td>
+              </tr>
+              <tr>
+                <td>SVC</td>
+                <td class="right">not enough computer</td>
+              </tr>
+              <tr>
+                <td>Multinomial Naive Bayes</td>
+                <td class="right">0.27</td>
+              </tr>
+              <tr>
+                <td>Decision Tree</td>
+                <td class="right">0.20</td>
+              </tr>
+              <tr>
+                <td>Random Forest</td>
+                <td class="right">0.26</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
 
       <div class="mySlides fade">
-        <div class="page page14">
-          <div class="column left copy">
+        <div class="page NLTK-baseline">
+          <div class="row top">
+            Initial run - baseline score. Biased distribution. Introverts post more or are more interested in knowing
+            personality? Beyond scope of
+            investigation
+          </div>
+          <div class="row bottom">
+            <div class="left cell">
+              <iframe src="pages/nltk_baseline.html"></iframe>
+            </div>
+            <div class="right cell">
+              <img src="images/posts by personality.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="page undersample">
+          <div class="row top">
             Undersampling? Oversampling?
           </div>
-          <div class="column right">
-            <img src="images/posts by personality.svg" />
+          <div class="row bottom">
+            <div>Sets the maximum number of data points per class to 500</div>
+            <iframe src="pages/nltk_Under.html"></iframe>
           </div>
         </div>
       </div>
 
       <div class="mySlides fade">
-        <div class="page page14">
-          <div class="column left copy">
-            Predict myself
+        <div class="page oversample">
+          <div class="label one">1</div>
+          <div class="label two">2</div>
+          <div class="label three">3</div>
+          <div class="row top">
+            <div class="cell left">
+              <iframe src="pages/nltk_Over_500.html"></iframe>
+            </div>
+            <div class="cell right">
+              Oversampling:
+              <ol>
+                <li>to 500 data points</li>
+                <li>to 1000 data points</li>
+                <li>to 1500 data points</li>
+              </ol>
+            </div>
           </div>
-          <div class="column right">
-            <img src="images/posts by personality.svg" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page14">
-          <div class="column left copy">
-            parameters for good score?
-          </div>
-          <div class="column right">
-            <img src="images/posts by personality.svg" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page14">
-          <div class="column left copy">
-            Oops. Too much flipped my personality.
-          </div>
-          <div class="column right">
-            <img src="images/posts by personality.svg" />
+          <div class="row bottom">
+            <div class="cell left">
+              <iframe src="pages/nltk_Over_1000.html"></iframe>
+            </div>
+            <div class="cell left">
+              <iframe src="pages/nltk_Over_1500.html"></iframe>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="mySlides fade">
-        <div class="page page16">
-          <div class="column left copy">
-            <u>Next steps:</u>
-            <ul>
-              <li>Split into categories - I-E S-N T-F J-P</li>
-              <li>Upsample</li>
-            </ul>
+        <div class="page oversample-plot">
+          <div class="row top">
+            New distribution plot for final settings
           </div>
-          <div class="column right">
-            <img src="https://medias1.prestastore.com/838558-pbig/to-do-list-in-your-back-office.jpg" />
+          <div class="row bottom">
+            <img src="images/1000over.svg" />
           </div>
         </div>
       </div>
@@ -281,11 +291,36 @@
           <img
             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fshortpixel.com%2Fimg%2Fspinner2.gif&f=1&nofb=1" />
         </div>
+        <div class="thinking fade">
+          <div class="thought1 fade">Thinking...</div>
+          <div class="thought2 fade">Thinking...</div>
+          <div class="thought3 fade">Thinking...</div>
+          <div class="thought4 fade">Wow. You're really making me work for this.</div>
+          <div class="thought5 fade">Okay. I have your answer.</div>
+        </div>
+        <audio controls style="display: none;">
+          <source src="audio/Processing R2D2.mp3" type="audio/mpeg" />
+        </audio>
         <div class="prediction-result">
           <div>I predict that you are an</div>
           <div>
             <span class="cat EI"></span><span class="cat NS"></span><span class="cat FT"></span><span
               class="cat JP"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="page todo">
+          <div class="column left">
+            <img src="https://medias1.prestastore.com/838558-pbig/to-do-list-in-your-back-office.jpg" />
+          </div>
+          <div class="column right">
+            <u>Next steps:</u>
+            <ul>
+              <li>Topic modeling</li>
+              <li>spaCy</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -405,11 +440,6 @@
       <span class="dot" onclick="currentSlide(15)"></span>
       <span class="dot" onclick="currentSlide(16)"></span>
       <span class="dot" onclick="currentSlide(17)"></span>
-      <span class="dot" onclick="currentSlide(18)"></span>
-      <span class="dot" onclick="currentSlide(19)"></span>
-      <span class="dot" onclick="currentSlide(20)"></span>
-      <!-- <span class="dot" onclick="currentSlide(21)"></span> -->
-      <!-- <span class="dot" onclick="currentSlide(22)"></span> -->
     </div>
     <!-- slideshow end -->
 

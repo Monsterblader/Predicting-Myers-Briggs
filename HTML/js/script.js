@@ -49,29 +49,51 @@ $("button").click(function () {
     type: "get",
     data: { content: content },
     success: function (data, status) {
-      cats = data.split('');
-      spinner.display = "none";
-      $('.prediction-result')[0].style.display = 'block';
       setTimeout(() => {
-        const EI = $('.EI')[0];
-        EI.innerText = cats[0];
-        EI.style.display = 'inline';
+        $('.thought1')[0].style.display = 'block'
       }, 1000);
       setTimeout(() => {
-        const NS = $('.NS')[0];
-        NS.innerText = cats[1];
-        NS.style.display = 'inline';
-      }, 2000);
+        $('.thought1')[0].style.display = 'none'
+        $('.thought2')[0].style.display = 'block'
+      }, 4000);
       setTimeout(() => {
-        const FT = $('.FT')[0];
-        FT.innerText = cats[2];
-        FT.style.display = 'inline';
-      }, 3000);
+        $('.thought2')[0].style.display = 'none'
+        $('.thought3')[0].style.display = 'block'
+      }, 7000);
       setTimeout(() => {
-        const JP = $('.JP')[0];
-        JP.innerText = cats[3];
-        JP.style.display = 'inline';
-      }, 5000);
+        $('.thought3')[0].style.display = 'none'
+        $('.thought4')[0].style.display = 'block'
+      }, 11000);
+      setTimeout(() => {
+        $('.thought4')[0].style.display = 'none'
+        $('.thought5')[0].style.display = 'block'
+      }, 15000)
+      setTimeout(() => {
+        cats = data.split('');
+        spinner.display = "none";
+        $('.thinking')[0].style.display = 'none';
+        $('.prediction-result')[0].style.display = 'block';
+        setTimeout(() => {
+          const EI = $('.EI')[0];
+          EI.innerText = cats[0];
+          EI.style.display = 'inline';
+        }, 1000);
+        setTimeout(() => {
+          const NS = $('.NS')[0];
+          NS.innerText = cats[1];
+          NS.style.display = 'inline';
+        }, 2000);
+        setTimeout(() => {
+          const FT = $('.FT')[0];
+          FT.innerText = cats[2];
+          FT.style.display = 'inline';
+        }, 3000);
+        setTimeout(() => {
+          const JP = $('.JP')[0];
+          JP.innerText = cats[3];
+          JP.style.display = 'inline';
+        }, 5000);
+      }, 17000);
     },
   });
 });
