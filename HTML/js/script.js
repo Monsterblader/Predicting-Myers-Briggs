@@ -50,24 +50,25 @@ $("button").click(function () {
     data: { content: content },
     success: function (data, status) {
       setTimeout(() => {
-        $('.thought1')[0].style.display = 'block'
+        $('.thought1')[0].style.display = 'block';
       }, 1000);
       setTimeout(() => {
         $('.thought1')[0].style.display = 'none'
-        $('.thought2')[0].style.display = 'block'
+        $('.thought2')[0].style.display = 'block';
+      }, 2000);
+      setTimeout(() => {
+        $('.thought2')[0].style.display = 'none';
+        $('.thought3')[0].style.display = 'block';
+      }, 3000);
+      setTimeout(() => {
+        $('.thought3')[0].style.display = 'none';
+        $('.thought4')[0].style.display = 'block';
+        document.getElementsByTagName('audio')[0].play();
       }, 4000);
       setTimeout(() => {
-        $('.thought2')[0].style.display = 'none'
-        $('.thought3')[0].style.display = 'block'
-      }, 7000);
-      setTimeout(() => {
-        $('.thought3')[0].style.display = 'none'
-        $('.thought4')[0].style.display = 'block'
-      }, 11000);
-      setTimeout(() => {
-        $('.thought4')[0].style.display = 'none'
-        $('.thought5')[0].style.display = 'block'
-      }, 15000)
+        $('.thought4')[0].style.display = 'none';
+        $('.thought5')[0].style.display = 'block';
+      }, 6000)
       setTimeout(() => {
         cats = data.split('');
         spinner.display = "none";
@@ -92,8 +93,14 @@ $("button").click(function () {
           const JP = $('.JP')[0];
           JP.innerText = cats[3];
           JP.style.display = 'inline';
-        }, 5000);
-      }, 17000);
+        }, 4000);
+      }, 7000);
     },
   });
 });
+
+const highlightMe = () => {
+  spanStyle = $('.onek')[0].style;
+  spanStyle.background = 'rgb(252, 176, 64)';
+  spanStyle.color = 'black';
+}

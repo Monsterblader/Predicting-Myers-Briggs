@@ -35,6 +35,11 @@ def send_pages(path):
     return send_from_directory('pages', path)
 
 
+@app.route('/media/<path:path>')
+def send_media(path):
+    return send_from_directory('media', path)
+
+
 @app.route('/getprediction')
 def get_prediction():
     return predict_personality(request.args.to_dict()['content'])

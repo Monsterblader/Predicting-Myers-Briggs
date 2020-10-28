@@ -43,41 +43,12 @@
       </div>
 
       <div class="mySlides fade">
-        <div class="page peter-principle">
-          <img src="images/pp.png" />
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page08 missing-personalities">
-          <div class="column left copy">
-            Provide new tools - to become better managers or rise to new levels of incompetence.
-            or tools for selling to personality types.
-          </div>
-          <div class="column right">
-            <img src="" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
         <div class="page whats-mbti">
           <div class="row top">
-            MBTI and what is it?
+            What is MBTI?
           </div>
           <div class="row bottom">
             <img src="https://blog.mapmyrun.com/wp-content/uploads/2018/06/UACF_Myers-Briggs_Chart5.jpg" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page06 why-me">
-          <div class="column left copy">
-            Why am I here?
-          </div>
-          <div class="column right">
-            <img src="" />
           </div>
         </div>
       </div>
@@ -104,7 +75,7 @@
           <div class="row top">
             <div class="column left">
               <div class="cell">
-                What's missing?<br />The personalities
+                What's missing?<br />Identifying the personalities.
               </div>
             </div>
             <div class="column right">
@@ -128,7 +99,7 @@
       <div class="mySlides fade">
         <div class="page tool">
           <div class="row top">
-            I have built a tool to predict their personalities based on what they write.
+            A Tool to Predict One's Myers-Briggs Type
           </div>
           <div class="row bottom">
             <div class="left">
@@ -149,7 +120,7 @@
       <div class="mySlides fade">
         <div class="page personality-cafe">
           <div class="row top">
-            Starting with an MBTI dataset
+            Findng an MBTI dataset
           </div>
           <div class="row middle">
             <img src="images/PersonalityCafe.png" />
@@ -179,7 +150,7 @@
       <div class="mySlides fade">
         <div class="page trying-classifiers">
           <div class="row top">
-            Separated post histories into individual posts and tried several classifiers.
+            Working with spaCy
           </div>
           <div class="row bottom">
             <table>
@@ -213,11 +184,27 @@
       </div>
 
       <div class="mySlides fade">
+        <div class="page NLTK-process">
+          <div class="row top">
+            <div>Processing the data for NLTK:</div>
+          </div>
+          <div class="row bottom">
+            <ol>
+              <li>Remove special characters</li>
+              <li>Remove single-letter words</li>
+              <li>Convert to lower case</li>
+              <li>Lemmatize</li>
+              <li>Stop words</li>
+              <li>Term frequency-inverse document frequency</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
         <div class="page NLTK-baseline">
           <div class="row top">
-            Initial run - baseline score. Biased distribution. Introverts post more or are more interested in knowing
-            personality? Beyond scope of
-            investigation
+            Create a baseline.
           </div>
           <div class="row bottom">
             <div class="left cell">
@@ -233,7 +220,7 @@
       <div class="mySlides fade">
         <div class="page undersample">
           <div class="row top">
-            Undersampling? Oversampling?
+            Undersample or Oversample?
           </div>
           <div class="row bottom">
             <div>Sets the maximum number of data points per class to 500</div>
@@ -255,7 +242,7 @@
               Oversampling:
               <ol>
                 <li>to 500 data points</li>
-                <li>to 1000 data points</li>
+                <li><span class="onek" onclick="highlightMe()">to 1000 data points</span></li>
                 <li>to 1500 data points</li>
               </ol>
             </div>
@@ -283,6 +270,11 @@
       </div>
 
       <div class="mySlides fade">
+        <video style="display: block; margin: auto; height: 800px; width: 1000px;" src="media/ENFP.mov"
+          controls></video>
+      </div>
+
+      <!-- <div class="mySlides fade">
         <div class="predictor fade">
           <textarea placeholder="Enter your text here then click 'Get my prediction'"></textarea>
           <button>Get my prediction!</button>
@@ -299,7 +291,7 @@
           <div class="thought5 fade">Okay. I have your answer.</div>
         </div>
         <audio controls style="display: none;">
-          <source src="audio/Processing R2D2.mp3" type="audio/mpeg" />
+          <source src="media/Processing R2D2.mp3" type="audio/mpeg" />
         </audio>
         <div class="prediction-result">
           <div>I predict that you are an</div>
@@ -308,7 +300,7 @@
               class="cat JP"></span>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="mySlides fade">
         <div class="page todo">
@@ -316,11 +308,21 @@
             <img src="https://medias1.prestastore.com/838558-pbig/to-do-list-in-your-back-office.jpg" />
           </div>
           <div class="column right">
-            <u>Next steps:</u>
-            <ul>
-              <li>Topic modeling</li>
-              <li>spaCy</li>
-            </ul>
+            <div class="cell top">
+              <u>Take aways:</u>
+              <ul>
+                <li>Text processing models work better with larger bodies of text.</li>
+                <li>Introverts either like to post more than extroverts, they are more curious about themselves, or they
+                  would rather connect with others anonymously.</li>
+              </ul>
+            </div>
+            <div class="cell bottom">
+              <u>Next steps:</u>
+              <ul>
+                <li>Topic modeling</li>
+                <li>spaCy</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -437,9 +439,7 @@
       <span class="dot" onclick="currentSlide(12)"></span>
       <span class="dot" onclick="currentSlide(13)"></span>
       <span class="dot" onclick="currentSlide(14)"></span>
-      <span class="dot" onclick="currentSlide(15)"></span>
-      <span class="dot" onclick="currentSlide(16)"></span>
-      <span class="dot" onclick="currentSlide(17)"></span>
+      <span class="dot" onclick="currentSlide(14)"></span>
     </div>
     <!-- slideshow end -->
 
@@ -487,10 +487,3 @@
 </body>
 
 </html>
-
--takeaways
-
-- on svg font size and color
-- on oversamplihg highlight chosen level
-- make iframes bigger
-- add highlight to iframe
