@@ -417,7 +417,6 @@ iframe {
   margin: auto;
   padding-top: 75px;
   position: relative;
-  /* text-shadow: 2px 2px 2px #111; */
   width: 1500px;
   z-index: 10;
 }
@@ -553,15 +552,11 @@ iframe {
 }
 
 .hidden {
-  /* display: none; */
-  /* transform: scaleX(0); */
-  /* transform-origin: left; */
   width: 0px;
 }
 
 .whats-mbti .reveal-wrapper {
   display: inline-block;
-  /* margin-left: -4px; */
 }
 
 .whats-mbti .wrapper,
@@ -575,15 +570,11 @@ iframe {
 }
 
 .whats-mbti .show-mbti {
-  /* display: inline-block; */
   text-align: left;
   white-space: nowrap;
 }
 
 .revealM {
-  /* animation-name: reveal;
-  animation-duration: 1s;
-  transition-timing-function: ease-in; */
   display: inline-block;
   transition: width 1s;
 
@@ -591,9 +582,6 @@ iframe {
 }
 
 .revealB {
-  /* animation-name: reveal;
-  animation-duration: 1s;
-  transition-timing-function: ease-in; */
   display: inline-block;
   transition: width 1s;
 
@@ -601,9 +589,6 @@ iframe {
 }
 
 .revealT {
-  /* animation-name: reveal;
-  animation-duration: 1s;
-  transition-timing-function: ease-in; */
   display: inline-block;
   transition: width 1s;
 
@@ -611,25 +596,8 @@ iframe {
 }
 
 .revealI {
-  /* animation-name: reveal;
-  animation-duration: 1s;
-  transition-timing-function: ease-in; */
   display: inline-block;
   transition: width 1s;
 
   width: 172px;
-}
-
-@keyframes reveal {
-  from {
-    transform: scaleX(0%);
-    /* display: none; */
-    width: 0%;
-  }
-
-  to {
-    transform: scaleX(100%);
-    /* display: inline-block; */
-    width: 10%;
-  }
 }
