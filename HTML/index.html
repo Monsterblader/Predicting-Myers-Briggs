@@ -45,7 +45,19 @@
       <div class="mySlides fade">
         <div class="page whats-mbti">
           <div class="row top">
-            What is MBTI?
+            <div class="wrapper">What is the M</div><span class="reveal-wrapper M hidden">
+              <span class="show-mbti M hidden">yers-</span>
+            </span>
+            <div class="wrapper B">B</div><span class="reveal-wrapper B hidden">
+              <span class="show-mbti B hidden">riggs&nbsp;</span>
+            </span>
+            <div class="wrapper">T</div><span class="reveal-wrapper T hidden">
+              <span class="show-mbti T hidden">ype&nbsp;</span>
+            </span>
+            <div class="wrapper">I</div><span class="reveal-wrapper I hidden">
+              <span class="show-mbti I hidden">ndicator</span>
+            </span>
+            <div class="wrapper Q">?</div>
           </div>
           <div class="row bottom">
             <img src="https://blog.mapmyrun.com/wp-content/uploads/2018/06/UACF_Myers-Briggs_Chart5.jpg" />
@@ -110,8 +122,8 @@
                 Shaman who now works for Metis. I bike, play piano, and dance in my spare time.</p>
             </div>
             <div class="right">
-              &#8594; <span class="cat">?</span><span class="cat">?</span><span class="cat">?</span><span
-                class="cat">?</span>
+              &#8594; <span class="cat EI">?</span><span class="cat NS">?</span><span class="cat FT">?</span><span
+                class="cat JP">?</span>
             </div>
           </div>
         </div>
@@ -270,11 +282,6 @@
       </div>
 
       <div class="mySlides fade">
-        <video style="display: block; margin: auto; height: 800px; width: 1000px;" src="media/ENFP.mov"
-          controls></video>
-      </div>
-
-      <!-- <div class="mySlides fade">
         <div class="predictor fade">
           <textarea placeholder="Enter your text here then click 'Get my prediction'"></textarea>
           <button>Get my prediction!</button>
@@ -300,7 +307,7 @@
               class="cat JP"></span>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <div class="mySlides fade">
         <div class="page todo">
@@ -326,96 +333,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="mySlides fade">
-        <div class="page page15">
-          <div class="column left copy">
-            Though the model doesn't predict some personality types, it has an accuracy of 0.21, better than
-            guessing randomly.
-          </div>
-          <div class="column right">
-            <div class="title"> Metrics of a Multinomial Naive Bayes Classifier and the NLTK Pre-Processor</div>
-            <iframe src="pages/nltk_holdback_metrics.html"></iframe>
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page17">
-          <div class="column left copy">
-            You all probably know your MBTI scores.
-            When I trained models on post histories, I got reasonably goo accuracy score of 0.6. When I ran the
-            model on my validation set, I still got 0.6. When I ran it on single posts, the accuracy dropped to
-            0.2. While that's better than guessing randomly, there were some caategories that it never guessed
-            because there are so few data points, so I split the personalities into the components to create
-            groups that had more data points.
-          </div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page18">
-          <div>
-            <ul>
-              <li>Used spaCy</li>
-              <li>Used NLTK</li>
-              <li>What are my models?</li>
-              <li>LinearSVC - slower than MultinomialNB</li>
-              <li>Random Forest</li>
-              <li>Linear Reg</li>
-              <li>Logistic reg</li>
-              <li>Tree</li>
-              <li>SVC</li>
-              <li>GaussianNB (for continuous numerical variables) - not suited for model as it has a sparse
-                matrix. MultinomialNB is a better fit.
-              </li>
-              <li>NB - count all words, create probabilities, predict from sum of log of probabilities</li>
-              <li>GradientBoost</li>
-              <li>Model is better when not separating posts</li>
-            </ul>
-          </div>
-          <div>This is four.</div>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page19">
-          <div>This is five.</div>
-          <li>Can you run model after vectorized?</li>
-          <li>Do you need to vectorize test data?</li>
-          <li>Model is much stronger when leaving posts combined per user. is this to be expected? Is it
-            reasonable to leave posts grouped this way</li>
-          <li>Does it still work when test set is split into individual posts. Investigate</li>
-          <li>What are other processing steps.</li>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page20">
-          <div>Next steps:</div>
-          <ul>
-            <li>Remove non-meaningful words. e.g. the, a</li>
-            <li>Group words by meaning. e.g. Synonym finder</li>
-            <li>Basic word groupings. e.g. not</li>
-            <li>Remove URLs.</li>
-            <li>group posts by personality parameters</li>
-            <li>split posts into rows</li>
-            <li>run different models</li>
-            <li>Other</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="page page21">
-          <ul>
-            <li>Where you focus your attention – Extraversion (E) or Introversion (I)</li>
-            <li>The way you take in information – Sensing (S) or INtuition (N)</li>
-            <li>How you make decisions – Thinking (T) or Feeling (F)</li>
-            <li>How you deal with the world – Judging (J) or Perceiving (P)</li>
-          </ul>
-        </div>
-      </div> -->
 
       <!-- Next and previous buttons -->
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -443,26 +360,53 @@
     </div>
     <!-- slideshow end -->
 
-    <!-- <div class="content">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
+
+<!-- <div class="mySlides fade">
+        <div class="page page15">
+          <div class="column left copy">
+            Though the model doesn't predict some personality types, it has an accuracy of 0.21, better than
+            guessing randomly.
+          </div>
+          <div class="column right">
+            <div class="title"> Metrics of a Multinomial Naive Bayes Classifier and the NLTK Pre-Processor</div>
+            <iframe src="pages/nltk_holdback_metrics.html"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="page page20">
+          <div>Next steps:</div>
+          <ul>
+            <li>Remove non-meaningful words. e.g. the, a</li>
+            <li>Group words by meaning. e.g. Synonym finder</li>
+            <li>Basic word groupings. e.g. not</li>
+            <li>Remove URLs.</li>
+            <li>group posts by personality parameters</li>
+            <li>split posts into rows</li>
+            <li>run different models</li>
+            <li>Other</li>
+          </ul>
+        </div>
+      </div>
+
+     <div class="content">
       <div class="page page22">
 
-
-        split by category to increase
-
-        undersampling or applying class weights
+        applying class weights
 
         grid search
         gradientboost
 
-
-        naive bayes
         xgboost
         randomforest
-
-        show results of all tried models - spacy, linearsvc, random forest, others
-
-        on initial nltk model, show results over val and holdback groups
-        show results for post history and single posts
 
         on initial nltk model, show myself - five categories
         - full personality
@@ -480,10 +424,3 @@
           predict personality. </div>
       </div>
     </div> -->
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="js/script.js"></script>
-</body>
-
-</html>
