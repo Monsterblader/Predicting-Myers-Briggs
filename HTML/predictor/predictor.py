@@ -1,8 +1,6 @@
 from sklearn.feature_extraction.text import TfidfTransformer
-import nltk
 import pickle
 import re
-import time
 import numpy as np
 import pandas as pd
 
@@ -10,13 +8,7 @@ from nltk.corpus import stopwords
 from imblearn.over_sampling import RandomOverSampler
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.svm import LinearSVC, SVC
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
 from nltk.stem import WordNetLemmatizer
 import psycopg2 as pg
 
@@ -93,56 +85,60 @@ def sanitize_posts(source):
 
 def predict_personality_full(user_post="Hi, everyone!  I’m a San Francisco native who attended Caltech in Pasadena and has spent time all over the country.  My favorite cities are San Francisco, Boston, Raleigh, and Denver.  I am a bootcamp veteran, having acquired a skill set in web development, and where I, amazingly, met Josh Shaman who now works for Metis.  I bike, play piano, and dance in my spare time."):
     train_size = 0.8
+    random_state = 56
+
+    oversample_size = 1000
     vectorizer_max_features = 1500
     chosen_classifier = MultinomialNB
 
     myers_briggs = load_data_set()
 
     mb_df = pd.DataFrame(myers_briggs, columns=['type', 'posts'])
-    types = sorted(mb_df['type'].unique())
-
-    post_list = [re.split('\|\|\|+', post) for post in mb_df['posts']]
-    post_df = pd.DataFrame(post_list)
-    post_df.insert(loc=0, column='type', value=mb_df['type'])
-
-    posts_by_type = {typ: mb_df[mb_df['type'] == typ] for typ in types}
-
-    vertical_post_df = pd.read_csv(
-        '../analysis/vertical_posts.csv', index_col=0)
 
     X_nat, y_nat = mb_df['posts'], mb_df['type']
-    oversample_size = 500
+    X_train_val, X_holdback, y_train_val, y_holdback = train_test_split(
+        X_nat, y_nat)
+    sanitized_train_val = sanitize_posts(X_train_val)
+    X_train, X_val, y_train, y_val = train_test_split(
+        sanitized_train_val, y_train_val, train_size=train_size, random_state=random_state)
+
     ros = RandomOverSampler(sampling_strategy={"ENFJ": oversample_size, "ENTJ": oversample_size, "ESFJ": oversample_size, "ESFP": oversample_size, "ESTJ": oversample_size,
                                                "ESTP": oversample_size, 'ISFJ': oversample_size, 'ISFP': oversample_size, 'ISTJ': oversample_size, 'ISTP': oversample_size})
-    X, y = ros.fit_sample(pd.DataFrame(X_nat), y_nat)
-    X_train_val, X_holdback, y_train_val, y_holdback = train_test_split(X, y)
-    documents = sanitize_posts(X_train_val['posts'])
+    X_train_ros, y_train_ros = ros.fit_sample(
+        pd.DataFrame(X_train, columns=['posts']), y_train)
 
     vectorizer = CountVectorizer(max_features=vectorizer_max_features,
                                  min_df=5, max_df=0.7, stop_words=stopwords.words('english'))
-    X = vectorizer.fit_transform(X_train_val['posts']).toarray()
+    X_vectorized = vectorizer.fit_transform(X_train_ros['posts']).toarray()
 
-    from sklearn.feature_extraction.text import TfidfTransformer
     tfidfconverter = TfidfTransformer()
-    X = tfidfconverter.fit_transform(X).toarray()
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y_train_val, train_size=train_size, random_state=0)
+    X_tfidf = tfidfconverter.fit_transform(X_vectorized).toarray()
 
     classifier = chosen_classifier()
-    classifier.fit(X_train, y_train)
-    y_pred = classifier.predict(X_test)
+    classifier.fit(X_tfidf, y_train_ros)
+
+    with open('text_vectorizer', 'wb') as picklefile:
+        pickle.dump(vectorizer, picklefile)
+
+    with open('text_tfidf', 'wb') as picklefile:
+        pickle.dump(tfidfconverter, picklefile)
 
     with open('text_classifier', 'wb') as picklefile:
         pickle.dump(classifier, picklefile)
 
+    with open('text_vectorizer', 'rb') as training_model:
+        text_vectorizer = pickle.load(training_model)
+
+    with open('text_tfidf', 'rb') as training_model:
+        text_tfidf = pickle.load(training_model)
+
     with open('text_classifier', 'rb') as training_model:
-        model = pickle.load(training_model)
+        text_classifier = pickle.load(training_model)
 
-    trans_user = vectorizer.transform([user_post]).toarray()
-    trans_user = tfidfconverter.fit_transform(trans_user).toarray()
+    user_vectorized = text_vectorizer.transform([user_post]).toarray()
+    user_tfidf = text_tfidf.fit_transform(user_vectorized).toarray()
 
-    return classifier.predict(trans_user)[0]
+    return text_classifier.predict(user_tfidf)[0]
 
 
 def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native who attended Caltech in Pasadena and has spent time all over the country.  My favorite cities are San Francisco, Boston, Raleigh, and Denver.  I am a bootcamp veteran, having acquired a skill set in web development, and where I, amazingly, met Josh Shaman who now works for Metis.  I bike, play piano, and dance in my spare time."):
@@ -153,7 +149,7 @@ def predict_personality(user_post="Hi, everyone!  I’m a San Francisco native w
     with open('text_classifier', 'rb') as training_classifier:
         classifier = pickle.load(training_classifier)
 
-    trans_user = vectorizer.transform([user_post]).toarray()
-    trans_user = tfidfconverter.fit_transform(trans_user).toarray()
+    user_vectorized = vectorizer.transform([user_post]).toarray()
+    user_tfidf = tfidfconverter.fit_transform(user_vectorized).toarray()
 
-    return classifier.predict(trans_user)[0]
+    return classifier.predict(user_tfidf)[0]
