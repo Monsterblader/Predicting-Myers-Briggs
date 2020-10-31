@@ -4,7 +4,7 @@ Predicting Myers-Briggs personality types by analyzing social-media posts.
 
 ## Goal of this project
 
-To explore classifications methods on texta.
+To be able to correctly identify personalities by analyzing texts.
 
 ## Source
 
@@ -32,6 +32,11 @@ The data was acquired from [Kaggle](https://www.kaggle.com/datasnaek/mbti-type),
 * TF-IDF
 * Bag of words
 * Over-sampling
+
+## Takeaways
+
+* The volume of text matters.  I initially split documents into individual posts.  This resulted in low success rates.
+* Introverts ares significantly more likely to post to Personality Cafe.
 
 ## Future work
 
