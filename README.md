@@ -14,24 +14,25 @@ The data was acquired from [Kaggle](https://www.kaggle.com/datasnaek/mbti-type),
 
 * Predicting MBTI.pdf - screenshots of the presentatin.
 * analysis/
-    - spaCy.ipynb - analyze the data with spaCy.
-    - nltk.ipynb - analyze the data with Natural Language Toolkit.  Establish a baseline.
-    - nltk_Under.ipynb - undersamples the data to address the class imbalance.
-    - nltk_Over.ipynb - oversamples the data to address the class imbalance.
-    - nltk_EI.ipynb - predicts the EI pair.
-    - nltk_EI_Over.ipynb - oversamples the EI pair.
-    - nltk_NS.ipynb - predicts the NS pair.
-    - ntlk_NS_Over.ipynb - oversamples the NS pair.
-    - nltk_FT.ipynb - predicts the FT pair.
-    - nltk_JP.ipynb - predicts the JP pair.
+  + spaCy.ipynb - analyze the data with spaCy.
+  + nltk.ipynb - analyze the data with Natural Language Toolkit.  Establish a baseline.
+  + nltk_Under.ipynb - undersamples the data to address the class imbalance.
+  + nltk_Over.ipynb - oversamples the data to address the class imbalance.
+  + nltk_EI.ipynb - predicts the EI pair.
+  + nltk_EI_Over.ipynb - oversamples the EI pair.
+  + nltk_NS.ipynb - predicts the NS pair.
+  + ntlk_NS_Over.ipynb - oversamples the NS pair.
+  + nltk_FT.ipynb - predicts the FT pair.
+  + nltk_JP.ipynb - predicts the JP pair.
 * HTML/ - the presentation files.
 
 ## Tools
 
-* CountVectorizer 
+* CountVectorizer
 * TF-IDF
 * Bag of words
 * Over-sampling
+* Multinomail Naive Bayes
 
 ## Takeaways
 
